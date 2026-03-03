@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-yellow-50: #fffee7;
+  --color-yellow-100: #f8f5ad;
+  --color-yellow-400: #e5df4d; /* Interpolated for hover states */
+  --color-yellow-500: #dfd82a;
+  --color-yellow-600: #bdb615;
+}
+
+@layer base {
+  body {
+    @apply antialiased selection:bg-yellow-100 selection:text-yellow-900;
+  }
+}
+
+@layer utilities {
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+}

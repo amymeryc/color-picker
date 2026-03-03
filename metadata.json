@@ -1,0 +1,5 @@
+{
+  "name": "Color picker",
+  "description": "A minimal and fast color palette extractor from images. Upload photos to instantly generate and save beautiful color schemes.",
+  "requestFramePermissions": ["camera"]
+}
