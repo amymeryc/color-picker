@@ -1,5 +1,5 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://raw.githubusercontent.com/amymeryc/Color-picker/main/banner.png" />
+<img width="1200" height="475" alt="GHBanner" src="https://raw.githubusercontent.com/amymeryc/color-picker/main/banner.png" />
 </div>
 
 # QuickPalette
