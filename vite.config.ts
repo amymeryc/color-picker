@@ -6,7 +6,7 @@ import {defineConfig, loadEnv} from 'vite';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    // ESTA ES LA LÍNEA MÁGICA PARA GITHUB PAGES:
+ 
     base: '/color-picker/', 
     
     plugins: [react(), tailwindcss()],
