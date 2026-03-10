@@ -223,7 +223,11 @@ export default function App() {
 
   const savePalettes = (newPalettes: PaletteEntry[]) => {
     setPalettes(newPalettes);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(newPalettes));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(newPalettes));
+    } catch (e) {
+      console.error('localStorage quota exceeded. Try deleting some palettes.', e);
+    }
   };
 
   const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
@@ -248,7 +252,16 @@ export default function App() {
           timestamp: Date.now(),
         };
 
-        savePalettes([newEntry, ...palettes]);
+        // Usamos el updater funcional para evitar el stale closure
+        setPalettes(prev => {
+          const updated = [newEntry, ...prev];
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+          } catch (e) {
+            console.error('localStorage quota exceeded. Try deleting some palettes.', e);
+          }
+          return updated;
+        });
       } catch (error) {
         console.error('Error extracting colors:', error);
       } finally {
